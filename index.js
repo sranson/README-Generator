@@ -1,8 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { NOTIMP } = require('dns');
-const { start } = require('repl');
+
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -18,21 +17,56 @@ const questions = [
     "What is your email address?"
 ];
 
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      name: 'title',
+      message: questions[0],
+    },
+    {
+      type: 'input',
+      name: 'description',
+      message: questions[1]
+    },
+    {
+      type: 'list',
+      message: questions[2],
+      name: 'TOC',
+      choices: ['yes', 'no'],
+    },
+    {
+      type: 'list',
+      message: questions[4],
+      name: "instructions",
+      choices: ['yes', 'no']
+    },
+    {
+      type: 'list',
+      message: questions[5],
+      name: "license",
+      choices: ['MIT', 'BSD', 'GPL']
+    }
+  ])
+  .then((data) => {
+    const filename = `${data.title.toLowerCase().split(' ').join('')}.json`;
+    writeToFile(filename, data) 
+  });
+
+
+
+
+
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile('README.md', questions, (err) => {
-        err ? console.log(err) : console.log('SUCCESS!');
-    })
-    // writeToFile(questions);
+    fs.writeFile(fileName, JSON.stringify(data, null, '\t'), (err) => err ? console.log(err) : console.log('SUCCESS!'));
 }
 
 
-
-// TODO: Create a function to initialize app
 function init() {
     return 'npm start';
 }
 
 // Function call to initialize app
 init();
-
