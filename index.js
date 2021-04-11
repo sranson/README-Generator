@@ -1,5 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const fs = require('fs');
+const { NOTIMP } = require('dns');
+const { start } = require('repl');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -16,10 +19,19 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile('README.md', questions, (err) => {
+        err ? console.log(err) : console.log('SUCCESS!');
+    })
+    // writeToFile(questions);
+}
+
+
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    return 'npm start';
+}
 
 // Function call to initialize app
 init();
