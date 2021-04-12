@@ -66,18 +66,25 @@ inquirer
     }
   ])
   .then((data) => {
-    console.log(data);
-    writeToFile(data) 
+    const filename = `${data.title.toLowerCase().split(' ').join('')}.json`;
+    writeToFile(filename, data) 
   });
 
 
-
+//Create a function that parses the data and adds it to external json file
+function writeToFile(filename, data) {
+  fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) => err ? console.log(err) : console.log('SUCCESS!'));
+}
 
 
 // TODO: Create a function to write README file
-function writeToFile(data) {
-    fs.writeFile('README.md', JSON.stringify(data, null, '\t'), (err) => err ? console.log(err) : console.log('SUCCESS!'));
+function writeREADME() {
+  // Use asyn await to grab the data from JSON file?
+
+  // If I can grab the data from the JSON file, I can format it and add it to the README
 }
+
+
 
 function init() {
     return 'npm start';
