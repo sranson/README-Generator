@@ -7,12 +7,11 @@ const fs = require('fs');
 const questions = [
     "What is your project's title?", 
     "What is the description of your project?", 
-    "Do you want to add a Table of Contents?",
-    "Do you want to add installation instructions?",
-    "Do you want to add usage instructions?",
+    "What are the installation instructions?",
+    "What are the usage instructions?",
     "What license do wou want to include in your README?",
-    "Do you want to add contributing authors?",
-    "Do you want to include tests?",
+    "Who are the contributing authors?",
+    "What are the test instructions?",
     "What is your GitHub username?",
     "What is your email address?"
 ];
@@ -27,42 +26,58 @@ inquirer
     {
       type: 'input',
       name: 'description',
-      message: questions[1]
+      message: questions[1], 
     },
     {
-      type: 'list',
+      type: 'input',
       message: questions[2],
-      name: 'TOC',
-      choices: ['yes', 'no'],
+      name: "instalInstrucs",
+    },
+    {
+      type: 'input',
+      message: questions[3],
+      name: 'usageInstrucs',
     },
     {
       type: 'list',
       message: questions[4],
-      name: "instructions",
-      choices: ['yes', 'no']
-    },
-    {
-      type: 'list',
-      message: questions[5],
       name: "license",
       choices: ['MIT', 'BSD', 'GPL']
+    },
+    {
+      type: 'input',
+      message: questions[5],
+      name: "authors",
+    },
+    {
+      type: 'input',
+      message: questions[6],
+      name: "testInstrucs",
+    },
+    {
+      type: 'input',
+      message: questions[7],
+      name: 'gitHubUsername'
+    },
+    {
+      type: 'input',
+      message: questions[8],
+      name: "email"
     }
   ])
   .then((data) => {
-    const filename = `${data.title.toLowerCase().split(' ').join('')}.json`;
-    writeToFile(filename, data) 
+    console.log(data);
+    writeToFile(data) 
   });
 
 
 
 
 
-
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, JSON.stringify(data, null, '\t'), (err) => err ? console.log(err) : console.log('SUCCESS!'));
+function writeToFile(data) {
+    fs.writeFile('README.md', JSON.stringify(data, null, '\t'), (err) => err ? console.log(err) : console.log('SUCCESS!'));
 }
-
 
 function init() {
     return 'npm start';
