@@ -78,15 +78,9 @@ inquirer
 
 
   function createDoc (title) {
-    const filename = `${title.toLowerCase().split(' ').join('')}.md`;
-    createFile(filename, `# ${title}`);      
+    const fileName = `${title.toLowerCase().split(' ').join('')}.md`;
+    fs.appendFile(fileName, `# ${title}`, (err) => err ? console.error(err) : console.log('Commit logged!'))
   }
-
-
-  function createFile(fileName, title) {
-    fs.appendFile(fileName, title, (err) => err ? console.error(err) : console.log('Commit logged!'))
-  }
-
 
 
 // TODO: Create a function to initialize app
