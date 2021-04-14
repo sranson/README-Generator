@@ -66,17 +66,26 @@ inquirer
     }
   ])
   .then((data) => {
-    writeToFile(data); 
+    formatData(data)
   });
 
+// This function decontructs the data object into individual variables
+  function formatData(data) {
+    console.log(data);
+    const {title, description, instalInstrucs: installation, usageInstrucs: usage, license, authors, testInstrucs: instructions, gitHubUsername: username, email} = data;
+    createDoc(title)
+  }
 
 
+  function createDoc (title) {
+    const filename = `${title.toLowerCase().split(' ').join('')}.md`;
+    createFile(filename, `# ${title}`);      
+  }
 
-// TODO: Create a function to write README file
-function writeToFile(data) {
-    let fileName = 'README.md';
-    fs.writeFile(fileName, JSON.stringify(data, null, '\t'), (err) => err ? console.log(err) : console.log('SUCCESS!'));
-}
+
+  function createFile(fileName, title) {
+    fs.appendFile(fileName, title, (err) => err ? console.error(err) : console.log('Commit logged!'))
+  }
 
 
 
