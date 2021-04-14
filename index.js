@@ -69,19 +69,29 @@ inquirer
     formatData(data)
   });
 
+  function addHeader(fileName, variable) {
+    fs.appendFile(fileName, '\n' + '## ' + variable, (err) => err ? console.error(err) : console.log('Commit logged!'))
+  }
+
 // This function decontructs the data object into individual variables
   function formatData(data) {
     console.log(data);
     const {title, description, instalInstrucs: installation, usageInstrucs: usage, license, authors, testInstrucs: instructions, gitHubUsername: username, email} = data;
-    createDoc(title)
+    createDoc(title, description);
   }
 
 
-  function createDoc (title) {
+
+  function createDoc (title, description) {
     const fileName = `${title.toLowerCase().split(' ').join('')}.md`;
-    fs.appendFile(fileName, `# ${title}`, (err) => err ? console.error(err) : console.log('Commit logged!'))
+    fs.writeFile(fileName, `# ${title}`, (err) => err ? console.error(err) : console.log('Commit logged!'))
+    addDescription(fileName, description)
   }
 
+  function addDescription(fileName, description) {
+    addHeader(fileName, `Description`);
+    fs.appendFile(fileName, '\n' + description, (err) => err ? console.error(err) : console.log('Commit logged!'))
+  }
 
 // TODO: Create a function to initialize app
 function init() {
