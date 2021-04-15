@@ -76,15 +76,18 @@ const generateReadMe = (data) => {
 
   const profileLink = `[GitHub](https://github.com/${username})\n`;
   const githubLink = `https://github.com/${username}`;
-  const tobTitleName = `${data.title.toLowerCase().split(' ').join('')}`;
+  const tobTitleName = `${data.title}`
+  const tobTitleName_arr = tobTitleName.split(' ');
+  const newTitleName = tobTitleName_arr.join('-');
+  
 
   const TOB = `
-  [Installation](${githubLink}/${tobTitleName}#Installation)\n
-  [Usage](${githubLink}/${tobTitleName}#Usage)\n
-  [Tests](${githubLink}/${tobTitleName}#Testing)\n
-  [Questions](${githubLink}/${tobTitleName}#Questions)\n
-  [Contributing](${githubLink}/${tobTitleName}#Contributing)\n
-  [License](${githubLink}/${tobTitleName}#License)
+  [Installation](${githubLink}/${newTitleName}#Installation)\n
+  [Usage](${githubLink}/${newTitleName}#Usage)\n
+  [Tests](${githubLink}/${newTitleName}#Testing)\n
+  [Questions](${githubLink}/${newTitleName}#Questions)\n
+  [Contributing](${githubLink}/${newTitleName}#Contributing)\n
+  [License](${githubLink}/${newTitleName}#License)
   `
 
   return `
