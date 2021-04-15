@@ -2,7 +2,7 @@
    # Tester App
 
    ## Description
-   This is a description
+   asasda
 
   
   [Installation](https://github.com/sranson/Tester-App#Installation)
@@ -21,21 +21,21 @@
    ## Table of Contents
 
    ## Installation
-   Installation instructions here
+   asdasd
 
    ## Usage
-   Usage instructions here
+   asdad
 
    ## Tests
-   Test Instructions here
+   adasd
 
    ## Questions
-   [GitHub](https://github.com/sranson)
+   [GitHub Profile](https://github.com/sranson)
 
-   salome@gmail.com
+   Email: salome@gmail.com
    
    ## Contributing
-   Salome Ranson
+   asdasda
 
    ## License
    [MIT](https://choosealicense.com/licenses/mit/)

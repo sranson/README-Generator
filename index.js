@@ -74,7 +74,7 @@ const generateReadMe = (data) => {
       newLicense = `[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)`;
     }
 
-  const profileLink = `[GitHub](https://github.com/${username})\n`;
+  const profileLink = `[GitHub Profile](https://github.com/${username})\n`;
   const githubLink = `https://github.com/${username}`;
   const tobTitleName = `${data.title}`
   const tobTitleName_arr = tobTitleName.split(' ');
@@ -111,7 +111,7 @@ const generateReadMe = (data) => {
 
    ## Questions
    ${profileLink}
-   ${email}
+   Email: ${email}
    
    ## Contributing
    ${authors}
