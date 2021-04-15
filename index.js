@@ -74,13 +74,28 @@ const generateReadMe = (data) => {
       newLicense = `[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)`;
     }
 
-  const profileLink = `[GitHub](https://github.com/${username})`;
+  const profileLink = `[GitHub](https://github.com/${username})\n`;
+  const githubLink = `https://github.com/${username}`;
+  const tobTitleName = `${data.title.toLowerCase().split(' ').join('')}`;
+
+  const TOB = `
+  [Installation](${githubLink}/${tobTitleName}#Installation)\n
+  [Usage](${githubLink}/${tobTitleName}#Usage)\n
+  [Tests](${githubLink}/${tobTitleName}#Testing)\n
+  [Questions](${githubLink}/${tobTitleName}#Questions)\n
+  [Contributing](${githubLink}/${tobTitleName}#Contributing)\n
+  [License](${githubLink}/${tobTitleName}#License)
+  `
 
   return `
-  # ${title}
+   # ${title}
 
-  ## Description
-  ${description}
+   ## Description
+   ${description}
+
+  ${TOB}
+
+   ## Table of Contents
 
    ## Installation
    ${installation}
@@ -88,17 +103,16 @@ const generateReadMe = (data) => {
    ## Usage
    ${usage}
 
-   ## Contributing Authors
-   ${authors}
-
-   ## Testing
+   ## Tests
    ${tests}
 
    ## Questions
    ${profileLink}
-
-   ## Email
    ${email}
+   
+
+   ## Contributing
+   ${authors}
 
    ## License
    ${newLicense}
