@@ -3,95 +3,99 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 
-// TODO: Create an array of questions for user input
-const questions = [
-    "What is your project's title?", 
-    "What is the description of your project?", 
-    "What are the installation instructions?",
-    "What are the usage instructions?",
-    "What license do wou want to include in your README?",
-    "Who are the contributing authors?",
-    "What are the test instructions?",
-    "What is your GitHub username?",
-    "What is your email address?"
-];
 
 inquirer
   .prompt([
     {
       type: 'input',
       name: 'title',
-      message: questions[0],
+      message: "What is your project's title?",
     },
     {
       type: 'input',
       name: 'description',
-      message: questions[1], 
+      message: "What is the description of your project?", 
     },
     {
       type: 'input',
-      message: questions[2],
-      name: "instalInstrucs",
+      message: "What are the installation instructions?",
+      name: "installation",
     },
     {
       type: 'input',
-      message: questions[3],
-      name: 'usageInstrucs',
+      message: "What are the usage instructions?",
+      name: 'usage',
     },
     {
       type: 'list',
-      message: questions[4],
+      message: "What license do wou want to include in your README?",
       name: "license",
       choices: ['MIT', 'BSD', 'GPL']
     },
     {
       type: 'input',
-      message: questions[5],
+      message: "Who are the contributing authors?",
       name: "authors",
     },
     {
       type: 'input',
-      message: questions[6],
-      name: "testInstrucs",
+      message: "What are the test instructions?",
+      name: "tests",
     },
     {
       type: 'input',
-      message: questions[7],
-      name: 'gitHubUsername'
+      message: "What is your GitHub username?",
+      name: 'username'
     },
     {
       type: 'input',
-      message: questions[8],
+      message: "What is your email address?",
       name: "email"
     }
   ])
   .then((data) => {
-    formatData(data)
+    title = data.title;
+    const fileName = `${title.toLowerCase().split(' ').join('')}.md`;
+    const markDownPageContent = generateReadMe(data);
+
+    fs.writeFile(fileName, markDownPageContent, (err) =>
+    err ? console.log(err) : console.log('Successfully created index.html!')
+  );
   });
 
-  function addHeader(fileName, variable) {
-    fs.appendFile(fileName, '\n' + '## ' + variable, (err) => err ? console.error(err) : console.log('Commit logged!'))
-  }
 
-// This function decontructs the data object into individual variables
-  function formatData(data) {
-    console.log(data);
-    const {title, description, instalInstrucs: installation, usageInstrucs: usage, license, authors, testInstrucs: instructions, gitHubUsername: username, email} = data;
-    createDoc(title, description);
-  }
+const generateReadMe = (data) => {
+  const {title, description, installation, usage, license, authors, tests, username, email } = data;
+  return `
+  # ${title}
+
+  ## Description
+  ${description}
+
+   ## Installation
+   ${installation}
+
+   ## Usage
+   ${usage}
+
+   ## License
+   ${license}
+
+   ## Contributing Authors
+   ${authors}
+
+   ## Testing
+   ${tests}
+
+   ## GitHub
+   ${username}
+
+   ## Email
+   ${email}
+  `
+} 
 
 
-
-  function createDoc (title, description) {
-    const fileName = `${title.toLowerCase().split(' ').join('')}.md`;
-    fs.writeFile(fileName, `# ${title}`, (err) => err ? console.error(err) : console.log('Commit logged!'))
-    addDescription(fileName, description)
-  }
-
-  function addDescription(fileName, description) {
-    addHeader(fileName, `Description`);
-    fs.appendFile(fileName, '\n' + description, (err) => err ? console.error(err) : console.log('Commit logged!'))
-  }
 
 // TODO: Create a function to initialize app
 function init() {
