@@ -30,7 +30,7 @@ inquirer
       type: 'list',
       message: "What license do wou want to include in your README?",
       name: "license",
-      choices: ['MIT', 'BSD', 'GPL']
+      choices: ['MIT', 'Apache 2.0', 'BSD', 'GNU']
     },
     {
       type: 'input',
@@ -54,18 +54,26 @@ inquirer
     }
   ])
   .then((data) => {
-    title = data.title;
-    const fileName = `${title.toLowerCase().split(' ').join('')}.md`;
+    const fileName = `${data.title.toLowerCase().split(' ').join('')}.md`;
     const markDownPageContent = generateReadMe(data);
 
     fs.writeFile(fileName, markDownPageContent, (err) =>
-    err ? console.log(err) : console.log('Successfully created index.html!')
+    err ? console.log(err) : console.log('Successfully created Readme file!')
   );
   });
 
 
+
 const generateReadMe = (data) => {
   const {title, description, installation, usage, license, authors, tests, username, email } = data;
+    if (license === 'MIT') {
+      newLicense = `[MIT](https://choosealicense.com/licenses/mit/)`
+    } else if (license === 'BSD') {
+       newLicense = `[BSD](https://opensource.org/licenses/BSD-1-Clause)`;
+    } else if (license === 'Apache 2.0') {
+      newLicense = `[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)`;
+    }
+
   return `
   # ${title}
 
@@ -78,9 +86,6 @@ const generateReadMe = (data) => {
    ## Usage
    ${usage}
 
-   ## License
-   ${license}
-
    ## Contributing Authors
    ${authors}
 
@@ -92,8 +97,12 @@ const generateReadMe = (data) => {
 
    ## Email
    ${email}
+
+   ## License
+   ${newLicense}
   `
 } 
+
 
 
 
