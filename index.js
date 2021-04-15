@@ -27,20 +27,14 @@ inquirer
       name: 'usage',
     },
     {
-      type: 'list',
-      message: "What license do wou want to include in your README?",
-      name: "license",
-      choices: ['MIT', 'Apache 2.0', 'BSD', 'GNU']
+      type: 'input',
+      message: "What are the test instructions?",
+      name: "tests",
     },
     {
       type: 'input',
       message: "Who are the contributing authors?",
       name: "authors",
-    },
-    {
-      type: 'input',
-      message: "What are the test instructions?",
-      name: "tests",
     },
     {
       type: 'input',
@@ -51,7 +45,13 @@ inquirer
       type: 'input',
       message: "What is your email address?",
       name: "email"
-    }
+    },
+    {
+      type: 'list',
+      message: "What license do wou want to include in your README?",
+      name: "license",
+      choices: ['MIT', 'Apache 2.0', 'BSD', 'GNU']
+    },
   ])
   .then((data) => {
     const fileName = `${data.title.toLowerCase().split(' ').join('')}.md`;
@@ -113,7 +113,6 @@ const generateReadMe = (data) => {
    ${profileLink}
    ${email}
    
-
    ## Contributing
    ${authors}
 
