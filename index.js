@@ -74,6 +74,8 @@ const generateReadMe = (data) => {
       newLicense = `[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)`;
     }
 
+  const profileLink = `[GitHub](https://github.com/${username})`;
+
   return `
   # ${title}
 
@@ -92,8 +94,8 @@ const generateReadMe = (data) => {
    ## Testing
    ${tests}
 
-   ## GitHub
-   ${username}
+   ## Questions
+   ${profileLink}
 
    ## Email
    ${email}
