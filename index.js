@@ -48,7 +48,7 @@ inquirer
     },
     {
       type: 'list',
-      message: "What license do wou want to include in your README?",
+      message: "What license do you want to include in your README?",
       name: "license",
       choices: ['MIT', 'Apache 2.0', 'GNU GPL v3']
     },
