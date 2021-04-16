@@ -50,7 +50,7 @@ inquirer
       type: 'list',
       message: "What license do wou want to include in your README?",
       name: "license",
-      choices: ['MIT', 'Apache 2.0', 'GNU']
+      choices: ['MIT', 'Apache 2.0', 'GNU GPL v3']
     },
   ])
   .then((data) => {
@@ -66,12 +66,17 @@ inquirer
 
 const generateReadMe = (data) => {
   const {title, description, installation, usage, license, authors, tests, username, email } = data;
+  let  badge = ``
     if (license === 'MIT') {
       newLicense = `[MIT](https://choosealicense.com/licenses/mit/)`
+      badge = `![Badge](https://badgen.net/badge/license/MIT/blue)`
     } else if (license === 'Apache 2.0') {
       newLicense = `[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)`;
-    } else if (license === 'GNU') {
-      newLicense = `[GNU](https://choosealicense.com/licenses/gpl-3.0/)`;
+      badge = `![Badge](https://img.shields.io/badge/License-Apache%202.0-blue.svg)`
+    } else if (license === 'GNU GPL v3') {
+      newLicense = `[GNU GPL v3](https://choosealicense.com/licenses/gpl-3.0/)`;
+      badge = `[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)`
+
     }
 
   const profileLink = `[GitHub Profile](https://github.com/${username})\n`;
@@ -79,6 +84,7 @@ const generateReadMe = (data) => {
   const tobTitleName = `${data.title}`
   const tobTitleName_arr = tobTitleName.split(' ');
   const newTitleName = tobTitleName_arr.join('-');
+  
   
 
   const TOB = `
@@ -93,12 +99,13 @@ const generateReadMe = (data) => {
   return `
    # ${title}
 
+   ${badge}
+
    ## Description
    ${description}
 
+  ## Table of Contents
   ${TOB}
-
-   ## Table of Contents
 
    ## Installation
    ${installation}
