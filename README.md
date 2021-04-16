@@ -33,7 +33,7 @@
    There are currently no test instructions.
 
   ## Video Demonstration
-  [Video Demonstration](https://www.youtube.com/watch?v=FGBceg8-Yi4)
+  [Video Demonstration](https://youtu.be/4v20ayjL28g)
 
    ## Questions
    [GitHub Profile](https://github.com/sranson)
