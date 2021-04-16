@@ -1,6 +1,6 @@
-# Readme Generator
-
    ![Badge](https://badgen.net/badge/license/MIT/blue)
+   
+   # Readme Generator
 
    ## Description
    This program accepts input from developers and returns a professional README.md file containing the project's details.

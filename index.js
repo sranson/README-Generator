@@ -97,9 +97,9 @@ const generateReadMe = (data) => {
   `
 
   return `
-   # ${title}
-
-   ${badge}
+  ${badge}
+  
+  # ${title}
 
    ## Description
    ${description}
