@@ -54,7 +54,7 @@ inquirer
     },
   ])
   .then((data) => {
-    const fileName = `${data.title.toLowerCase().split(' ').join('')}.md`;
+    const fileName = `README.md`
     const markDownPageContent = generateReadMe(data);
 
     fs.writeFile(fileName, markDownPageContent, (err) =>
