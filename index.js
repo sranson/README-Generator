@@ -90,7 +90,7 @@ const generateReadMe = (data) => {
   const TOB = `
   [Installation](${githubLink}/${newTitleName}#Installation)\n
   [Usage](${githubLink}/${newTitleName}#Usage)\n
-  [Tests](${githubLink}/${newTitleName}#Testing)\n
+  [Tests](${githubLink}/${newTitleName}#Tests)\n
   [Questions](${githubLink}/${newTitleName}#Questions)\n
   [Contributing](${githubLink}/${newTitleName}#Contributing)\n
   [License](${githubLink}/${newTitleName}#License)

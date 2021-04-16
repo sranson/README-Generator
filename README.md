@@ -11,7 +11,7 @@
 
   [Usage](https://github.com/sranson/Readme-Generator#Usage)
 
-  [Tests](https://github.com/sranson/Readme-Generator#Testing)
+  [Tests](https://github.com/sranson/Readme-Generator#Tests)
 
   [Questions](https://github.com/sranson/Readme-Generator#Questions)
 
