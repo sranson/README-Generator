@@ -50,7 +50,7 @@ inquirer
       type: 'list',
       message: "What license do wou want to include in your README?",
       name: "license",
-      choices: ['MIT', 'Apache 2.0', 'BSD', 'GNU']
+      choices: ['MIT', 'Apache 2.0', 'GNU']
     },
   ])
   .then((data) => {
@@ -68,10 +68,10 @@ const generateReadMe = (data) => {
   const {title, description, installation, usage, license, authors, tests, username, email } = data;
     if (license === 'MIT') {
       newLicense = `[MIT](https://choosealicense.com/licenses/mit/)`
-    } else if (license === 'BSD') {
-       newLicense = `[BSD](https://opensource.org/licenses/BSD-1-Clause)`;
     } else if (license === 'Apache 2.0') {
-      newLicense = `[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)`;
+      newLicense = `[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)`;
+    } else if (license === 'GNU') {
+      newLicense = `[GNU](https://choosealicense.com/licenses/gpl-3.0/)`;
     }
 
   const profileLink = `[GitHub Profile](https://github.com/${username})\n`;
