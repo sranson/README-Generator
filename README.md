@@ -1,0 +1,41 @@
+# Readme Generator
+
+   ![Badge](https://badgen.net/badge/license/MIT/blue)
+
+   ## Description
+   This program accepts input from developers and returns a professional README.md file containing the project's details.
+
+  ## Table of Contents
+  
+  [Installation](https://github.com/sranson/Readme-Generator#Installation)
+
+  [Usage](https://github.com/sranson/Readme-Generator#Usage)
+
+  [Tests](https://github.com/sranson/Readme-Generator#Testing)
+
+  [Questions](https://github.com/sranson/Readme-Generator#Questions)
+
+  [Contributing](https://github.com/sranson/Readme-Generator#Contributing)
+
+  [License](https://github.com/sranson/Readme-Generator#License)
+  
+
+   ## Installation
+   Please be sure to install all dependencies prior to running this program. Once all dependencies are installed, simply type in 'npm start' from the command line.
+
+   ## Usage
+   To use this program, provide your  project's details in response to the program's questions.
+
+   ## Tests
+   There are currently no test instructions.
+
+   ## Questions
+   [GitHub Profile](https://github.com/sranson)
+
+   Email: salomeranson@gmail.com
+   
+   ## Contributing
+   Salome Ranson
+
+   ## License
+   [MIT](https://choosealicense.com/licenses/mit/)
